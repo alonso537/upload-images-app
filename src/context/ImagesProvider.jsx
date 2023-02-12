@@ -25,7 +25,7 @@ const ImagesProvider = ({ children }) => {
       setImages(data);
       setLoading(false);
     } catch (error) {
-      console.log(error);
+      toast.error(error.response.data);
       setLoading(false);
     }
   };
@@ -37,13 +37,13 @@ const ImagesProvider = ({ children }) => {
         `${import.meta.env.VITE_BACK_URL}/api/v1/images/`,
         datos,
       );
-      console.log(data);
+      // console.log(data);
 
       setLoading(false);
       getImages();
       toast.success("Imagen Subida correctamente");
     } catch (error) {
-      console.log(error);
+      toast.error(error.response.data);
       setLoading(false);
     }
   };
@@ -65,7 +65,7 @@ const ImagesProvider = ({ children }) => {
       toast.success("Actualizado Correctamente");
       getImages();
     } catch (error) {
-      console.log(error);
+      toast.error(error.response.data);
       setLoading(false);
     }
   };
