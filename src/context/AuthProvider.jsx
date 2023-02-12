@@ -15,7 +15,7 @@ const AuthProvider = ({ children }) => {
     try {
       setLoading(true);
       const { data } = await axios.post(
-        "http://127.0.0.1:8000/api/v1/api/token/",
+        `${import.meta.env.VITE_BACK_URL}/api/v1/api/token/`,
         {
           email,
           password,
@@ -41,7 +41,7 @@ const AuthProvider = ({ children }) => {
     try {
       setLoading(true);
       const { data } = await axios.post(
-        "http://127.0.0.1:8000/api/v1/auth/register/",
+        `${import.meta.env.VITE_BACK_URL}/api/v1/auth/register/`,
         {
           username,
           email,
@@ -66,7 +66,7 @@ const AuthProvider = ({ children }) => {
     try {
       setLoading(true);
       const { data } = await axios.get(
-        "http://127.0.0.1:8000/api/v1/auth/me/",
+        `${import.meta.env.VITE_BACK_URL}/api/v1/auth/me/`,
         {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,

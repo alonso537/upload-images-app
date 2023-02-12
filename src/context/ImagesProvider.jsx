@@ -12,11 +12,14 @@ const ImagesProvider = ({ children }) => {
   const getImages = async () => {
     try {
       setLoading(true);
-      const { data } = await axios.get("http://127.0.0.1:8000/api/v1/images/", {
-        headers: {
-          Authorization: `Bearer ${localStorage.token}`,
+      const { data } = await axios.get(
+        `${import.meta.env.VITE_BACK_URL}/api/v1/images/`,
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.token}`,
+          },
         },
-      });
+      );
 
       //   console.log(data);
       setImages(data);
@@ -31,7 +34,7 @@ const ImagesProvider = ({ children }) => {
     try {
       setLoading(true);
       const { data } = await axios.post(
-        "http://127.0.0.1:8000/api/v1/images/",
+        `${import.meta.env.VITE_BACK_URL}/api/v1/images/`,
         datos,
       );
       console.log(data);
@@ -49,7 +52,7 @@ const ImagesProvider = ({ children }) => {
     try {
       setLoading(true);
       const { data } = await axios.put(
-        `http://127.0.0.1:8000/api/v1/images/${id}/update/`,
+        `${import.meta.env.VITE_BACK_URL}/api/v1/images/${id}/update/`,
         datos,
         {
           headers: {
@@ -71,7 +74,7 @@ const ImagesProvider = ({ children }) => {
     try {
       setLoading(true);
       const { data } = await axios.post(
-        `http://127.0.0.1:8000/api/v1/images/${id}/delete/`,
+        `${import.meta.env.VITE_BACK_URL}/api/v1/images/${id}/delete/`,
         datos,
         {
           headers: {
