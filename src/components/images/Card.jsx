@@ -4,12 +4,15 @@ import DeleteForm from "../forms/DeleteForm";
 import UpdateImage from "../forms/UpdateImage";
 import ModalBasic from "../modal/ModalBasic";
 
+import ImageFull from "../ImageFull";
+
 const Card = ({ img }) => {
   const [onHovered, setOnHovered] = useState(false);
   const [openEdit, setOpenEdit] = useState(false);
   const [openDelete, setOpenDelete] = useState(false);
   const [title, setTitle] = useState(null);
   const [content, setContent] = useState(null);
+  const [verImage, setVerImage] = useState(false);
 
   const handleUpdate = (img) => {
     setOpenEdit(true);
@@ -23,6 +26,12 @@ const Card = ({ img }) => {
     setContent(<DeleteForm close={() => setOpenDelete(false)} img={img} />);
   };
 
+  const handleVerImage = (img) => {
+    setVerImage(true);
+    setTitle("Ver Imagen");
+    setContent(<ImageFull img={img} />);
+  };
+
   //   console.log(img);
   return (
     <>
@@ -34,7 +43,9 @@ const Card = ({ img }) => {
           src={img?.image}
           alt={img?.image}
           className="rounded w-full h-full"
+          onClick={() => handleVerImage(img)}
         />
+
         <div
           className={`${
             !onHovered && "hidden"
@@ -67,6 +78,12 @@ const Card = ({ img }) => {
       <ModalBasic
         close={() => setOpenDelete(false)}
         visible={openDelete}
+        title={title}
+        content={content}
+      />
+      <ModalBasic
+        close={() => setVerImage(false)}
+        visible={verImage}
         title={title}
         content={content}
       />

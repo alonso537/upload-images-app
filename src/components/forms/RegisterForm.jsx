@@ -70,7 +70,7 @@ const RegisterForm = ({ close }) => {
         />
       </div>
       <div className="w-full flex flex-col">
-        <label htmlFor="password">Confirmar COntraseña</label>
+        <label htmlFor="password">Confirmar Contraseña</label>
         <input
           type="password"
           name="confirPassword"

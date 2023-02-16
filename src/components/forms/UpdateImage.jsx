@@ -6,6 +6,7 @@ import { ImagesContext } from "../../context/ImagesProvider";
 const UpdateImage = ({ img, close }) => {
   const { loading, updateImage } = useContext(ImagesContext);
   const [image, setImage] = useState(img?.image);
+  const [preview, setpreview] = useState({});
   //   console.log(img);
 
   const formik = useFormik({
@@ -26,19 +27,32 @@ const UpdateImage = ({ img, close }) => {
     },
   });
 
+  const handleImage = (e) => {
+    if (e.target.files[0]) {
+      setpreview(URL.createObjectURL(e.target.files[0]));
+      setImage(e.target.files[0]);
+    }
+  };
+
   return (
     <form className="flex flex-col space-y-5" onSubmit={formik.handleSubmit}>
       <div className="w-full flex flex-col">
-        <label htmlFor="name">imagen</label>
+        <label htmlFor="name">Imagen</label>
         <input
           type="file"
           accept="image/*"
           name="image"
-          onChange={(e) => setImage(e.target.files[0])}
+          onChange={handleImage}
           className="border-2 border-purple-500 rounded-md px-3 py-2 focus:outline-none focus:border-purple-700"
         />
       </div>
-      {image && (
+      {preview.length > 0 ? (
+        <img
+          src={preview}
+          alt="preview"
+          className="w-20 h-20 object-cover rounded-full"
+        />
+      ) : (
         <img
           className="w-20 h-20 object-cover rounded-full"
           src={image}
