@@ -43,12 +43,12 @@ const Layout = ({ children }) => {
             <>
               <button
                 onClick={handleOpenLogin}
-                className="bg-white text-purple-500 font-semibold px-5 py-2 rounded-md transition hover:bg-gray-200">
+                className="bg-white text-gray-700 font-semibold px-5 py-2 rounded-md transition hover:bg-gray-200">
                 Login
               </button>
               <button
                 onClick={handleOpenRegister}
-                className="bg-white text-purple-500 font-semibold px-5 py-2 rounded-md transition hover:bg-gray-200">
+                className="bg-white text-gray-700 font-semibold px-5 py-2 rounded-md transition hover:bg-gray-200">
                 Register
               </button>
             </>

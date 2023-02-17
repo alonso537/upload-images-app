@@ -4,6 +4,7 @@ import * as yup from "yup";
 import { ImagesContext } from "../../context/ImagesProvider";
 import { AuthContext } from "../../context/AuthProvider";
 import { ImSpinner3 } from "react-icons/im";
+import { toast } from "react-toastify";
 
 const UploadForm = ({ close }) => {
   const { createImage, loading } = useContext(ImagesContext);
@@ -26,7 +27,8 @@ const UploadForm = ({ close }) => {
         await createImage(formData);
         close();
       } catch (error) {
-        console.log(error);
+        // console.log(error);
+        toast.error("error");
       }
     },
   });

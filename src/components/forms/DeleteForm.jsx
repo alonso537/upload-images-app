@@ -3,6 +3,7 @@ import { useFormik } from "formik";
 import * as yup from "yup";
 import { ImagesContext } from "../../context/ImagesProvider";
 import { ImSpinner3 } from "react-icons/im";
+import { toast } from "react-toastify";
 
 const DeleteForm = ({ img, close }) => {
   //   console.log(img);
@@ -16,7 +17,8 @@ const DeleteForm = ({ img, close }) => {
       try {
         await deleteImage(img?.id, form);
       } catch (error) {
-        console.log(error);
+        // console.log(error);
+        toast.error("error");
       }
     },
   });

@@ -3,6 +3,7 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import { AuthContext } from "../../context/AuthProvider";
 import { ImSpinner3 } from "react-icons/im";
+import { toast } from "react-toastify";
 
 const LoginForm = ({ close }) => {
   const { login, loading } = useContext(AuthContext);
@@ -24,7 +25,8 @@ const LoginForm = ({ close }) => {
         await login(values.email, values.password);
         close();
       } catch (error) {
-        console.log(error);
+        // console.log(error);
+        toast.error("error");
       }
     },
   });
