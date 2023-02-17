@@ -23,7 +23,9 @@ const UpdateImage = ({ img, close }) => {
       formData.append("user", img?.user);
 
       await updateImage(img?.id, formData);
-      close();
+      if (!loading) {
+        close();
+      }
     },
   });
 

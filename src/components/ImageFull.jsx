@@ -4,14 +4,8 @@ import React from "react";
 
 const ImageFull = ({ img }) => {
   return (
-    <div className="py-2">
-      {/* <ImageGallery
-        items={[{ original: img?.image }]}
-        showFullscreenButton={true}
-        showPlayButton={false}
-        showThumbnails={false}
-        showNav={false}
-      /> */}
+    <div className="py-2 flex justify-center">
+      <img src={img?.image} alt={img?.image} />
     </div>
   );
 };

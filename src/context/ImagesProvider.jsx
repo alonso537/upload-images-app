@@ -62,8 +62,8 @@ const ImagesProvider = ({ children }) => {
       );
       // console.log(data);
       setLoading(false);
-      toast.success("Actualizado Correctamente");
       getImages();
+      toast.success("Actualizado Correctamente");
     } catch (error) {
       toast.error(error.response.data);
       setLoading(false);
@@ -84,8 +84,8 @@ const ImagesProvider = ({ children }) => {
       );
 
       setLoading(false);
-      toast.success("Imagen Eliminada");
       getImages();
+      toast.success("Imagen Eliminada");
     } catch (error) {
       toast.error(error.response.data);
       setLoading(false);
