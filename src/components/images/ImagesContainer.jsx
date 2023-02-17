@@ -15,10 +15,6 @@ const ImagesContainer = () => {
       {loading ? (
         <>
           <Skeleton />
-          <Skeleton />
-          <Skeleton />
-          <Skeleton />
-          <Skeleton />
         </>
       ) : !images ? (
         <div className="col-span-12 text-2xl font-bold text-gray-700">

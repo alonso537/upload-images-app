@@ -78,6 +78,7 @@ const AuthProvider = ({ children }) => {
       setLoading(false);
     } catch (error) {
       // console.log(error);
+      toast.error("No estas logueado");
       setLoading(false);
       localStorage.removeItem("token");
     }
