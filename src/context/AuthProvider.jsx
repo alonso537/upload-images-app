@@ -63,6 +63,7 @@ const AuthProvider = ({ children }) => {
   };
 
   const getMe = async () => {
+    if (!localStorage.getItem("token")) return;
     try {
       setLoading(true);
       const { data } = await axios.get(
@@ -92,7 +93,9 @@ const AuthProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    getMe();
+    if (localStorage.getItem("token")) {
+      getMe();
+    }
   }, []);
 
   return (

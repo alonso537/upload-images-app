@@ -10,6 +10,7 @@ const ImagesProvider = ({ children }) => {
   //   useContext
 
   const getImages = async () => {
+    if (!localStorage.getItem("token")) return;
     try {
       setLoading(true);
       const { data } = await axios.get(
