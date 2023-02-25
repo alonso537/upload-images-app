@@ -43,7 +43,7 @@ const Card = ({ img }) => {
           src={img?.image}
           alt={img?.image}
           className="rounded w-full h-full"
-          onClick={() => handleVerImage(img)}
+          // onClick={() => handleVerImage(img)}
         />
 
         <div

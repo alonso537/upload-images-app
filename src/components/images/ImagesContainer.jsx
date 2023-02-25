@@ -1,6 +1,6 @@
 import React, { useContext, useEffect } from "react";
+import { ImSpinner3 } from "react-icons/im";
 import { ImagesContext } from "../../context/ImagesProvider";
-import Skeleton from "../utils/Skeleton";
 import Card from "./Card";
 
 const ImagesContainer = () => {
@@ -14,7 +14,9 @@ const ImagesContainer = () => {
     <div className="grid grid-cols-12 gap-2">
       {loading ? (
         <>
-          <Skeleton />
+          <div className="col-span-12 flex justify-center items-center">
+            <ImSpinner3 className="animate-spin text-5xl text-purple-500 col-span-12" />
+          </div>
         </>
       ) : !images ? (
         <div className="col-span-12 text-2xl font-bold text-gray-700">
